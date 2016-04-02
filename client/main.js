@@ -1,22 +1,41 @@
 import { Template } from 'meteor/templating';
 import { ReactiveVar } from 'meteor/reactive-var';
+ 
 
 import './main.html';
 
-Template.hello.onCreated(function helloOnCreated() {
-  // counter starts at 0
-  this.counter = new ReactiveVar(0);
+Template.stockSymbolsTemplate.onCreated(function helloOnCreated() {
+   var self = this;
+   self.subscribe('symbols'); 
 });
 
-Template.hello.helpers({
-  counter() {
-    return Template.instance().counter.get();
-  },
+Template.stockSymbolsTemplate.helpers({
+
+   settings: function () {
+        console.log("Called stock settings");
+        return {
+            collection: SymbolList,
+            rowsPerPage: 20,
+            showFilter: false,
+			showRowCount: false,
+			showNavigationRowsPerPage: false,
+			showNavigation: 'auto',
+			sortable: false ,
+			 fields: [
+				{ key: 'symbol', label: 'Symbol' },
+				{ key: 'company',  label: 'Company'}, 
+				{ key: 'price', label: 'Price',   fn: function (value) { return accounting.formatMoney(value); }},
+			] 
+			           
+        };
+    },
+
+   symbolsList: function () {        
+        return SymbolList.find();;
+    },
 });
 
-Template.hello.events({
-  'click button'(event, instance) {
-    // increment the counter when button is clicked
-    instance.counter.set(instance.counter.get() + 1);
-  },
+Template.stockSymbolsTemplate.events({
+  
+  
 });
