@@ -5,9 +5,8 @@ import { Meteor } from 'meteor/meteor';
 	});
 
 	Meteor.methods({
-	    stockTickerFeed : function (symbolId,value) {	
-		 	SymbolList.update(symbolId, {$set: {delta: value}}  );	
-			SymbolList.update(symbolId, {$inc: {price: value }}  );
+	    stockTickerFeed : function (symbolId,value) {			
+		    SymbolList.update(symbolId, { $set: { delta:value } , $inc: {price: value } }); 
 	   },
 
 	});
