@@ -12,6 +12,16 @@ Template.price.helpers({
    formatPrice:  function (value) {    
        return value.toFixed(2);        
     },
+	
+	imageForDelta: function (value) {
+        if (value<0) {
+		   return "/images/downTick-sm.png";
+		} else {
+		   return "/images/upTick-sm.png";
+		}
+	     
+    },
+	
 });
 
 // Helper function to format the delta 
@@ -19,6 +29,7 @@ Template.delta.helpers({
    formatDelta:  function (value) {    
        return value.toFixed(2);        
     },
+	
 });
 
 // when stockSymbols template has been create
@@ -43,8 +54,8 @@ Template.stockSymbols.helpers({
 			 fields: [
 				{ key: 'symbol', label: 'Symbol' },
 				{ key: 'company',  label: 'Company'}, 
-				{ key: 'price', label: 'Price',  tmpl: Template.price,  fn: function (value) { return price ; }},
-				{ key: 'delta', label: 'Delta' , tmpl: Template.delta,  fn: function (value) { return value ; }},
+				{ key: 'price', label: 'Price',  tmpl: Template.price },
+				{ key: 'delta', label: 'Delta' , tmpl: Template.delta },
 			] 
 			           
         };
