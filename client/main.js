@@ -1,17 +1,19 @@
 import { Template } from 'meteor/templating';
 import { ReactiveVar } from 'meteor/reactive-var';
 
+import './templates/stockSymbols.html';
 import './templates/main.html';
 import './templates/price.html';
 import './templates/delta.html';
 
-Template.stockSymbolsTemplate.onCreated(
+
+Template.stockSymbols.onCreated(
    function stocksOnCreated() {
      var self = this;
      self.subscribe('symbols'); 
 });
 
-Template.stockSymbolsTemplate.helpers({
+Template.stockSymbols.helpers({
 
    settings: function () {       
         return {
@@ -37,7 +39,7 @@ Template.stockSymbolsTemplate.helpers({
     },
 });
 
-Template.stockSymbolsTemplate.events({
+Template.stockSymbols.events({
   'click .reactive-table tbody tr': function (event) {
        alert("Quit clicking on the table. What's up with that?");
   }

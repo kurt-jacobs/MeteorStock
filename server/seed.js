@@ -27,7 +27,7 @@ seedSymbols = function (){
 		SymbolList.insert( { "symbol" : "CSX" ,  "company" : "CSX Corporation" ,  "price" : "25.62" ,  "delta" : "0.0" });
 		SymbolList.insert( { "symbol" : "CTRP" ,  "company" : "Ctrip.com International Ltd." ,  "price" : "44.84" ,  "delta" : "0.0" }); 
 		SymbolList.insert( { "symbol" : "DISCK" ,  "company" : "Discovery Communications Inc." ,  "price" : "27.48" ,  "delta" : "0.0" });
-		SymbolList.insert( { "symbol" : "DISH" ,  "company" : "DISH Network Corporation" ,  "price" : "46.2775" ,  "delta" : "0.0" });
+		SymbolList.insert( { "symbol" : "DISH" ,  "company" : "DISH Network Corporation" ,  "price" : "46.75" ,  "delta" : "0.0" });
 		SymbolList.insert( { "symbol" : "DLTR" ,  "company" : "Dollar Tree Inc." ,  "price" : "83.31" ,  "delta" : "0.0" });
 		SymbolList.insert( { "symbol" : "EBAY" ,  "company" : "eBay Inc." ,  "price" : "23.88" ,  "delta" : "0.0" });
 		SymbolList.insert( { "symbol" : "EA" ,  "company" : "Electronic Arts Inc." ,  "price" : "65.92" ,  "delta" : "0.0" });
