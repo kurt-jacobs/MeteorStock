@@ -29,7 +29,6 @@ Schemas.SymbolTypeSchema = new SimpleSchema({
        label: "Delta",
 	   decimal: true,
 	   defaultValue: 0,
-	   min:0,
 	   max:99999999
     }	
  });  
