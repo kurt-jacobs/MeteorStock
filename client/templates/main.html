@@ -2,7 +2,7 @@
   <title>Stocks Example</title>
 </head>
 
-<body>
+<body> 
   <h1>Stocks</h1>
   {{> stockSymbolsTemplate}}
 </body>
@@ -10,7 +10,7 @@
 <template name="stockSymbolsTemplate">
   {{#if Template.subscriptionsReady}}  
       <div class="container">         
-        {{>  reactiveTable class="table table-bordered table-hover" collection=SymbolsList  settings=settings}}
+        {{>  reactiveTable class="table table-bordered table-striped table-hover" collection=SymbolsList  settings=settings}}
      </div>
   {{/if}}     
 </template>

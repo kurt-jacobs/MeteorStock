@@ -1,18 +1,19 @@
 import { Template } from 'meteor/templating';
 import { ReactiveVar } from 'meteor/reactive-var';
- 
 
-import './main.html';
+import './templates/main.html';
+import './templates/price.html';
+import './templates/delta.html';
 
-Template.stockSymbolsTemplate.onCreated(function helloOnCreated() {
-   var self = this;
-   self.subscribe('symbols'); 
+Template.stockSymbolsTemplate.onCreated(
+   function stocksOnCreated() {
+     var self = this;
+     self.subscribe('symbols'); 
 });
 
 Template.stockSymbolsTemplate.helpers({
 
-   settings: function () {
-        console.log("Called stock settings");
+   settings: function () {       
         return {
             collection: SymbolList,
             rowsPerPage: 20,
@@ -24,7 +25,8 @@ Template.stockSymbolsTemplate.helpers({
 			 fields: [
 				{ key: 'symbol', label: 'Symbol' },
 				{ key: 'company',  label: 'Company'}, 
-				{ key: 'price', label: 'Price',   fn: function (value) { return accounting.formatMoney(value); }},
+				{ key: 'price', label: 'Price',  tmpl: Template.price,  fn: function (value) { return value.toFixed(2) ; }},
+				{ key: 'delta', label: 'Delta' , tmpl: Template.delta,  fn: function (value) { return  value.toFixed(2); }},
 			] 
 			           
         };
@@ -36,6 +38,9 @@ Template.stockSymbolsTemplate.helpers({
 });
 
 Template.stockSymbolsTemplate.events({
-  
+  'click .reactive-table tbody tr': function (event) {
+       alert("Quit clicking on the table. What's up with that?");
+  }
+ 
   
 });
