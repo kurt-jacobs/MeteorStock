@@ -17,9 +17,9 @@ Template.stockSymbolsTemplate.helpers({
         return {
             collection: SymbolList,
             rowsPerPage: 20,
-            showFilter: false,
-			showRowCount: false,
-			showNavigationRowsPerPage: false,
+            showFilter: true,
+			showRowCount: true,
+			showNavigationRowsPerPage: true,
 			showNavigation: 'auto',
 			sortable: false ,
 			 fields: [
